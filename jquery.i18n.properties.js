@@ -36,6 +36,7 @@
  *      language:  'en_US',
  *      path:      'bundles'
  * });
+   * @param  map       set $.i18n.map directly
    * @param  name      (string/string[], optional) names of file to load (eg, 'Messages' or ['Msg1','Msg2']). Defaults to "Messages"
    * @param  language    (string, optional) language/country code (eg, 'en', 'en_US', 'pt_BR'). if not specified, language reported by the browser will be used instead.
    * @param  path      (string, optional) path of directory that contains file to load
@@ -47,6 +48,7 @@
   $.i18n.properties = function (settings) {
     // set up settings
     var defaults = {
+      map: null,
       name: 'Messages',
       language: '',
       path: '',
@@ -58,7 +60,10 @@
       callback: null
     };
     settings = $.extend(defaults, settings);
-
+    if(settings.map){
+      $.i18n.map = settings.map;
+      return;
+    }
     // Try to ensure that we have at a least a two letter language code
     settings.language = this.normaliseLanguageCode(settings.language);
 

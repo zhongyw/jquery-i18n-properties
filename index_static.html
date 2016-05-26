@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+    <script type="text/javascript" src="jquery.i18n.properties-min.js"></script>
+    <script>
+        var LangHelper = {};
+        LangHelper.langMap = {
+            "common.cancel": "{1}取消{0}"
+        };
+
+        jQuery.i18n.properties({
+            map: LangHelper.langMap
+        });
+        alert($.i18n.prop("common.cancel","a中","b中"));
+    </script>
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
